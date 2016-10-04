@@ -1,86 +1,75 @@
  //declare bacteria variables here   
- void setup()   
- {     
- 	bacteria = //in an array
+ //void setup()   
+ //{     
+ 	//bacteria = //in an array
  	//initialize bacteria variables here   
- }   
- void draw()   
- {    
+ //}   
+ //void draw()   
+ //{    
  	//move and show the bacteria 
  	//random walk
- 	x = x + (int)(Math.random()*3 -1);
- }  
- class Bacteria    
- {     
- 	colonyBac (int[]nums){
- 	int colony ;
- 	for (i = 0; i < ; i++) {
- 	return bac ++;
- 	}
- } 
+ 	
+ //}  
 
 
 
-//int number;
-//int dots;
+Bacteria [] bac;
+
 void setup()
 {
 	size (450,450);
-	noLoop();
+	//noLoop();
+	bac = new Bacteria [50];
+	for (int i = 0; i <50; i ++){
+		bac [i] = new Bacteria();
+	}
+
 }
 //columns and rows
 void draw()
 {
-	int number = 0;
+	background(0,0,0);
 	for (int x = 50; x<450; x=x + 100)
 	{
 		for (int y = 50; y<450; y =  y + 100)
 		{
-			 
-			 Die dice = new Die(x,y);
-			 dice.show();
-			 dice.roll();
-			 number = number + dots;
+			bac[i].move(); 
+			bac[i].show();
+			
+			
 		}
 
 	}
-	textSize(20);
-	text (number,220,400);
-
 }
 //each time
-void mousePressed()
-{
-	redraw();
-}
+//void mousePressed()
+//{
+	//redraw();
+//}
 //what 
-class Die
+
+class Bacteria
 {
 	int myX,myY;
-	Die(int x, int y)
+	int BacColor;
+	Bacteria()
 	{
-		
-		dots= (int)(Math.random()*6 + 1);
-		myX = x;
-		myY = y;
+		BacColor = color(myX,myY,50);
+		myX = (int)(Math.random()*450);
+		myY = (int)(Math.random()*450);
 	}
 	void show()
 	{
 		noStroke();
-		fill (myX,myY,250);
+		fill (BacColor);
 		ellipse(myX,myY,50,50,10);
 	}
 	void move()
 	{
-
+		x = x + (int)(Math.random()*2 - 3);
+		y = y + (int)(Math.random()*2 - 4);
 		
 	}
 
 }   
 
- /*1. A class to represent a single bacteria or some other single organism. The class will have the following members:
-  - 3 ints which hold the x and y coordinates of the bacteria position, and the bacteria color.
-  - A constructor which initializes the 3 ints
-  - `void move()` which moves the bacteria in a **random walk** pattern.
-  - `void show()` which draws the bacteria in the correct position and color 
-2. You will then use an array to store many *instances* of the Bacteria. 
