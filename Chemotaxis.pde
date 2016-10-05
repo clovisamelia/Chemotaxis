@@ -20,7 +20,7 @@ void setup()
 	size (450,450);
 	//noLoop();
 	bac = new Bacteria [50];
-	for (int i = 0; i <50; i ++){
+	for (int i = 0; i < bac.length; i ++){
 		bac [i] = new Bacteria();
 	}
 
@@ -29,17 +29,14 @@ void setup()
 void draw()
 {
 	background(0,0,0);
-	for (int x = 50; x<450; x=x + 100)
-	{
-		for (int y = 50; y<450; y =  y + 100)
+	for (int i = 0; i < bac.length; i ++)
 		{
 			bac[i].move(); 
 			bac[i].show();
-			
-			
+		
 		}
 
-	}
+	
 }
 //each time
 //void mousePressed()
@@ -54,20 +51,21 @@ class Bacteria
 	int BacColor;
 	Bacteria()
 	{
-		BacColor = color(myX,myY,50);
+		
 		myX = (int)(Math.random()*450);
 		myY = (int)(Math.random()*450);
+		BacColor = color(myX,myY,myY);
 	}
 	void show()
 	{
 		noStroke();
 		fill (BacColor);
-		ellipse(myX,myY,50,50,10);
+		ellipse(myX,myY,25,25);
 	}
 	void move()
 	{
-		x = x + (int)(Math.random()*2 - 3);
-		y = y + (int)(Math.random()*2 - 4);
+		myX = myX + (int)(Math.random()*6 - 3);
+		myY = myY + (int)(Math.random()*6 - 3);
 		
 	}
 
